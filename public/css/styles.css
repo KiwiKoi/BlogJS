@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  text-align: center;
+}
+
+h1 {
+  margin: auto;
+  font-weight: bold;
+  color: #055555;
+}
+
+main {
+  max-height: 80vh;
+}
+
+header {
+  padding: 5%;
+}
+
+footer {
+  bottom: 0;
+}
+
+a {
+  color: inherit;
+}
+
+.article-card {
+  margin: 10 auto 10 auto;
+}

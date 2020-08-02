@@ -1,0 +1,14 @@
+<%- include('partials/header') %><%- include('partials/nav') %>
+
+<h1>Articles</h1>
+<section>
+  <% data.forEach(p => { %>
+  <div class="article-card card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= p.name %></h5>
+      <p class="card-text"><%= p.contents %></p>
+    </div>
+  </div>
+  <% }) %>
+</section>
+<%- include('partials/footer') %>
