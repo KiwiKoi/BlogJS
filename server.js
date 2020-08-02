@@ -1,8 +1,9 @@
 "use strict";
+require("dotenv").config();
+const cors = require("cors");
 
 const express = require("express");
 const mysql = require("mysql");
-const cors = require("cors");
 const ejs = require("ejs");
 
 const path = require("path");
@@ -14,10 +15,10 @@ app.use(cors());
 // Connect to database
 const connection = mysql.createConnection({
   // DB properties
-  host: "localhost",
-  user: "root",
-  password: "password",
-  database: "blog",
+  host: root,
+  user: process.env.SQL_USER,
+  password: process.env.SQL_PASSWORD,
+  database: process.env.SQL_DATABASE,
 });
 
 connection.connect((error) => {
