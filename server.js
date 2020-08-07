@@ -1,6 +1,6 @@
 "use strict";
 // require("dotenv").config();
-const cors = require("cors");
+// const cors = require("cors");
 
 const express = require("express");
 const mysql = require("mysql");
@@ -10,7 +10,7 @@ const path = require("path");
 const app = express();
 const port = 3000;
 
-app.use(cors());
+// app.use(cors());
 
 // Connect to database
 const connection = mysql.createConnection({
@@ -67,5 +67,14 @@ app.get("/article/:id", (req, res) => {
     }
   );
 });
+
+// Serve static assets if in production
+if (process.env.NODE_ENV === "production") {
+  // Set static folder
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
